@@ -9,7 +9,6 @@
   position: relative;
   top: 100px;
   background: #e4f1fe;
-  margin-top: -70px;
 }
 body {
   background-image: url(v1015-104a.jpg);
@@ -70,7 +69,8 @@ button .btn-outline-dark {
 .link {
   position: relative;
   top: 120px;
-  left: 350px;
+  left: 20px;
+  margin-right: 300px;
 }
 ul {
   color: #0dcaf0;
@@ -81,8 +81,4 @@ ul {
 }
 .weather-forecast-temperature-min {
   opacity: 0.7;
-}
-.link {
-  margin-left: -150px;
-  margin-right: 500px;
 }
