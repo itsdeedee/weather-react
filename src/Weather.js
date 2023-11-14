@@ -5,12 +5,14 @@ import axios from "axios";
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: Math.round(response.data.temperature.current),
       wind: Math.round(response.data.wind.speed),
       city: response.data.city,
       humidity: response.data.temperature.humidity,
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       iconUrl: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.description}.png`,
     });
@@ -51,7 +53,7 @@ export default function Weather() {
           <div class="col-6">
             <ul>
               <li>
-                <span id="time">Thursday 18:38</span>,
+                <weatherDate date={weatherData.date} /> ,
                 <span id="description">{weatherData.description}</span>
               </li>
 
