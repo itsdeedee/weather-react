@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Forecast from "./Forecast";
 import axios from "axios";
+import weatherDate from "./WeatherDate";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -53,7 +54,10 @@ export default function Weather() {
           <div class="col-6">
             <ul>
               <li>
-                <weatherDate date={weatherData.date} /> ,
+                <weatherDate />
+              </li>
+
+              <li>
                 <span id="description">{weatherData.description}</span>
               </li>
 
