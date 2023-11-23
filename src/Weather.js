@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Forecast from "./Forecast";
 import axios from "axios";
-import weatherDate from "./WeatherDate";
+import Weather2 from "./Weather2";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherTime, setWeatherTime] = useState({ ready: false });
+
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -13,10 +15,12 @@ export default function Weather() {
       wind: Math.round(response.data.wind.speed),
       city: response.data.city,
       humidity: response.data.temperature.humidity,
-      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
-      iconUrl: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.description}.png`,
     });
+  }
+  function handleTime(response) {
+    console.log(response.data);
+    setWeatherTime({ date: new Date(response.data.dt * 1000) });
   }
   if (weatherData.ready) {
     return (
@@ -49,40 +53,7 @@ export default function Weather() {
             </div>
           </div>
         </form>
-        <h1>Paris</h1>
-        <div class="row" id="weather-attributes">
-          <div class="col-6">
-            <ul>
-              <li>
-                <weatherDate />
-              </li>
-
-              <li>
-                <span id="description">{weatherData.description}</span>
-              </li>
-
-              <li>
-                Humidity: <span id="humidity">{weatherData.humidity}</span>%
-              </li>
-              <li>
-                Wind: <span id="wind">{weatherData.wind}</span>km/h
-              </li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <div class="d-flex weather-temperature">
-              <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                alt="Clear"
-                id="icon"
-              />
-              <div class="float-left">
-                <strong id="temp">{weatherData.temperature}</strong>
-                <span class="units">℃</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Weather2 data={weatherData} time={weatherTime} />
         <Forecast />
       </div>
     );
@@ -91,6 +62,12 @@ export default function Weather() {
     let city = "Paris";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+
+    const ApiKey = "46bcf398c3089fd0db0296fd3c3fb1f6";
+    let City = "Paris";
+    let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${City}&appid=${ApiKey}`;
+    axios.get(ApiUrl).then(handleTime);
+
     return "Loading . . . . .";
   }
 }
