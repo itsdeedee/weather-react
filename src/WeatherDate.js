@@ -9,7 +9,7 @@ export default function WeatherDate(props) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturd",
+    "Saturday",
   ];
   let day = days[props.date.getDay()];
 
