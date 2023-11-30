@@ -4,7 +4,7 @@ import WeatherDate from "./WeatherDate";
 export default function Weather2(props) {
   return (
     <div className="Weather2">
-      <h1>Paris</h1>
+      <h1>{props.data.city}</h1>
       <div class="row" id="weather-attributes">
         <div class="col-6">
           <ul>
