@@ -9,7 +9,7 @@ export default function Weather2(props) {
         <div class="col-6">
           <ul>
             <li>
-              <WeatherDate date={props.time.date} />
+              <WeatherDate date={props.data.time} />
             </li>
 
             <li>
@@ -17,7 +17,7 @@ export default function Weather2(props) {
             </li>
 
             <li>
-              Humidity: <span id="humidity">{props.data.humidity}</span>%
+              Humidity: <span id="humidity">{props.data.humidity}</span>
             </li>
             <li>
               Wind: <span id="wind">{props.data.wind}</span>km/h
