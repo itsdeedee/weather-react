@@ -26,11 +26,7 @@ export default function Weather2(props) {
         </div>
         <div class="col-6">
           <div class="d-flex weather-temperature">
-            <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-              alt="Clear"
-              id="icon"
-            />
+            <img src={props.data.iconUrl} alt="Clear" id="icon" />
             <div class="float-left">
               <strong id="temp">{props.data.temperature}</strong>
               <span class="units">℃</span>
