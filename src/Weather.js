@@ -17,6 +17,7 @@ export default function Weather(props) {
       description: response.data.condition.description,
       time: new Date(response.data.time * 1000),
       iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      coordinates: response.data.coordinates,
     });
   }
 
