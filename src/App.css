@@ -82,3 +82,58 @@ ul {
 .weather-forecast-temperature-min {
   opacity: 0.7;
 }
+@media screen and (max-width: 550px) {
+  .container {
+    padding: 30px 60px 60px 10px;
+    max-width: 380px;
+    max-height: 560px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .weather-temperature img {
+    margin-right: 5px;
+    margin-top: -10px;
+    height: 64px;
+    width: 59px;
+  }
+  #temp {
+    font-size: 70px;
+  }
+  .units {
+    font-size: 22px;
+    top: -33px;
+    left: 2px;
+  }
+  ul {
+    color: #298ec7;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+  }
+  .weather-temperature {
+    margin-top: 27px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  #weather-attributes {
+    margin-top: 40px;
+    margin-bottom: -30px;
+  }
+  #col {
+    margin-left: 20px;
+    margin-right: 8px;
+  }
+
+  .WeatherForecast-day {
+    margin-top: 10px;
+  }
+  .link {
+    position: relative;
+    top: 120px;
+    left: 5px;
+    margin-right: 100px;
+  }
+}
