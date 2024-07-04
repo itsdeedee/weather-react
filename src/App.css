@@ -7,7 +7,7 @@
   margin: 0 auto;
   padding: 50px 50px 50px 50px;
   position: relative;
-  top: 100px;
+  top: 60px;
   background: #e4f1fe;
 }
 body {
@@ -134,7 +134,7 @@ ul {
   }
   .link {
     position: relative;
-    top: 120px;
+    top: 50px;
     left: 5px;
     margin-right: 100px;
   }
